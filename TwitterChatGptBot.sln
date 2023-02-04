@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33122.133
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TwitterChatGptBot", "TwitterChatGptBot\TwitterChatGptBot.csproj", "{174D2C81-BEB3-4276-8600-2B45A277A996}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TwitterChatGptBot.Client", "TwitterChatGptBot\TwitterChatGptBot.Client\TwitterChatGptBot.Client.csproj", "{174D2C81-BEB3-4276-8600-2B45A277A996}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
