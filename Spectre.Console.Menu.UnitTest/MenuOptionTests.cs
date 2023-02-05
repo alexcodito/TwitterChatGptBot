@@ -52,22 +52,22 @@ public class MenuOptionTests
         _sut.SelectedOption.Should().Be("Menu Option 1");
     }
 
-    private void TheBackOptionIsSelected()
+    private async Task TheBackOptionIsSelected()
     {
-        _sut.ProcessMenuSelection(_subMenu);
+        await _sut.ProcessMenuSelection(_subMenu);
     }
 
     private void AMenuOptionWithAParentMenu()
     {
         _subMenu = new Menu()
-           .AddMenuOption(new MenuOption("SubMenu Option 1", () => {}))
-           .AddMenuOption(new MenuOption("SubMenu Option 2", () => {}))
-           .AddMenuOption(new MenuOption("Back"));
+           .AddMenuOption(new MenuOption("SubMenu Option 1"))
+           .AddMenuOption(new MenuOption("SubMenu Option 2"))
+           .AddMenuOption(new MenuOption("Back", ActionType.LoadParentMenu));
 
         _menu = new Menu()
-            .AddMenuOption(new MenuOption("Menu Option 1", () => {}))
+            .AddMenuOption(new MenuOption("Menu Option 1"))
             .AddMenuOption(new MenuOption("Menu Option 2", _subMenu))
-            .AddMenuOption(new MenuOption("Exit", () => {}));
+            .AddMenuOption(new MenuOption("Exit", ActionType.Exit));
 
         _consoleMock
             .SetupSequence(x => x.Prompt(It.IsAny<SelectionPrompt<string>>()))
@@ -80,22 +80,22 @@ public class MenuOptionTests
         _sut.SelectedOption.Should().Be("SubMenu Option 2");
     }
 
-    private void TheOptionIsSelected()
+    private async Task TheOptionIsSelected()
     {
-        _sut.ProcessMenuSelection(_menu);
+        await _sut.ProcessMenuSelection(_menu);
     }
 
     private void AMenuOptionWithASubMenu()
     {
         _subMenu = new Menu()
-            .AddMenuOption(new MenuOption("SubMenu Option 1", () => {}))
-            .AddMenuOption(new MenuOption("SubMenu Option 2", () => {}))
-            .AddMenuOption(new MenuOption("Back"));
+            .AddMenuOption(new MenuOption("SubMenu Option 1"))
+            .AddMenuOption(new MenuOption("SubMenu Option 2"))
+            .AddMenuOption(new MenuOption("Back", ActionType.LoadParentMenu));
 
         _menu = new Menu()
-            .AddMenuOption(new MenuOption("Menu Option 1", () => {}))
+            .AddMenuOption(new MenuOption("Menu Option 1"))
             .AddMenuOption(new MenuOption("Menu Option 2", _subMenu))
-            .AddMenuOption(new MenuOption("Exit"));
+            .AddMenuOption(new MenuOption("Exit", ActionType.Exit));
 
         _consoleMock
             .SetupSequence(x => x.Prompt(It.IsAny<SelectionPrompt<string>>()))
@@ -112,11 +112,11 @@ public class MenuOptionTests
     {
         _menu = new Menu()
             .AddMenuOption(new MenuOption("Menu Option 1", () => { _callbackExecuted = true; }))
-            .AddMenuOption(new MenuOption("Exit"));
+            .AddMenuOption(new MenuOption("Exit", ActionType.Exit));
 
         _consoleMock
             .SetupSequence(x => x.Prompt(It.IsAny<SelectionPrompt<string>>()))
-            .Returns("Menu Option 1");
+            .Returns("Menu Option 1")
+            .Returns("Exit");
     }
-
 }
