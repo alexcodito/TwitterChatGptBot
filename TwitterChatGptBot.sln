@@ -5,19 +5,50 @@ VisualStudioVersion = 17.4.33122.133
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TwitterChatGptBot.Client", "TwitterChatGptBot\TwitterChatGptBot.Client\TwitterChatGptBot.Client.csproj", "{174D2C81-BEB3-4276-8600-2B45A277A996}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Spectre.Console.Menu", "Spectre.Console.Menu\Spectre.Console.Menu.csproj", "{AFCCFB59-B7B9-4993-8214-C6F52BE7444B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{D3D040F8-0534-4AD3-9776-82B1C855A0A4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Spectre.Console.Menu.UnitTest", "Spectre.Console.Menu.UnitTest\Spectre.Console.Menu.UnitTest.csproj", "{8159C30E-80E7-4DC9-B3CF-64445951FF50}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
 		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{174D2C81-BEB3-4276-8600-2B45A277A996}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{174D2C81-BEB3-4276-8600-2B45A277A996}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{174D2C81-BEB3-4276-8600-2B45A277A996}.Debug|x64.ActiveCfg = Debug|x64
+		{174D2C81-BEB3-4276-8600-2B45A277A996}.Debug|x64.Build.0 = Debug|x64
 		{174D2C81-BEB3-4276-8600-2B45A277A996}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{174D2C81-BEB3-4276-8600-2B45A277A996}.Release|Any CPU.Build.0 = Release|Any CPU
+		{174D2C81-BEB3-4276-8600-2B45A277A996}.Release|x64.ActiveCfg = Release|x64
+		{174D2C81-BEB3-4276-8600-2B45A277A996}.Release|x64.Build.0 = Release|x64
+		{AFCCFB59-B7B9-4993-8214-C6F52BE7444B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFCCFB59-B7B9-4993-8214-C6F52BE7444B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFCCFB59-B7B9-4993-8214-C6F52BE7444B}.Debug|x64.ActiveCfg = Debug|x64
+		{AFCCFB59-B7B9-4993-8214-C6F52BE7444B}.Debug|x64.Build.0 = Debug|x64
+		{AFCCFB59-B7B9-4993-8214-C6F52BE7444B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFCCFB59-B7B9-4993-8214-C6F52BE7444B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFCCFB59-B7B9-4993-8214-C6F52BE7444B}.Release|x64.ActiveCfg = Release|x64
+		{AFCCFB59-B7B9-4993-8214-C6F52BE7444B}.Release|x64.Build.0 = Release|x64
+		{8159C30E-80E7-4DC9-B3CF-64445951FF50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8159C30E-80E7-4DC9-B3CF-64445951FF50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8159C30E-80E7-4DC9-B3CF-64445951FF50}.Debug|x64.ActiveCfg = Debug|x64
+		{8159C30E-80E7-4DC9-B3CF-64445951FF50}.Debug|x64.Build.0 = Debug|x64
+		{8159C30E-80E7-4DC9-B3CF-64445951FF50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8159C30E-80E7-4DC9-B3CF-64445951FF50}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8159C30E-80E7-4DC9-B3CF-64445951FF50}.Release|x64.ActiveCfg = Release|x64
+		{8159C30E-80E7-4DC9-B3CF-64445951FF50}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8159C30E-80E7-4DC9-B3CF-64445951FF50} = {D3D040F8-0534-4AD3-9776-82B1C855A0A4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B1D6D792-ADA3-4134-8B59-0A9236FA0D1C}
