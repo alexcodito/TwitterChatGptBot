@@ -25,9 +25,16 @@ public class MenuHandler
 
         var selectedMenuOption = menuOptions.Options.First(x => x.Title == SelectedOption);
 
-        if (selectedMenuOption.ActionType == ActionType.Back)
+        if (selectedMenuOption.ActionType == ActionType.LoadParentMenu)
         {
             ProcessMenuSelection(menuOptions.Parent);
+        }
+        else if (selectedMenuOption.ActionType == ActionType.ExecuteCallback)
+        {
+            if (selectedMenuOption.Callback != null)
+            {
+                selectedMenuOption.Callback();
+            }
         }
         else if(selectedMenuOption.SubMenu != null)
         {

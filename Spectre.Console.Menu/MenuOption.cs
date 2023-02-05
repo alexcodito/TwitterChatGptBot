@@ -2,16 +2,31 @@
 
 public sealed class MenuOption
 {
-    public string Title { get; set; }
+    public string Title { get; }
 
-    public Menu? SubMenu { get; set; }
+    public Menu? SubMenu { get; }
 
-    public ActionType? ActionType { get; set; }
+    public ActionType? ActionType { get; }
 
-    public MenuOption(string title, Menu? subMenu = null, ActionType? actionType = null)
+    public Action? Callback { get; }
+
+    public MenuOption(string title, Menu? subMenu)
     {
         Title = title;
         SubMenu = subMenu;
-        ActionType = actionType;
+        ActionType = Console.Menu.ActionType.LoadSubMenu;
+    }
+
+    public MenuOption(string title, Action callback)
+    {
+        Title = title;
+        Callback = callback;
+        ActionType = Console.Menu.ActionType.ExecuteCallback;
+    }
+
+    public MenuOption(string title)
+    {
+        Title = title;
+        ActionType = Console.Menu.ActionType.LoadParentMenu;
     }
 }

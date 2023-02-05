@@ -2,7 +2,7 @@
 
 public enum ActionType
 {
-    Back,
-    EnterSubMenu,
+    LoadParentMenu,
+    LoadSubMenu,
     ExecuteCallback
 }

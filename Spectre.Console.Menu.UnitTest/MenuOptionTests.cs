@@ -11,7 +11,7 @@ public class MenuOptionTests
     private Menu _subMenu;
     private MenuHandler _sut;
     private Mock<IConsole> _consoleMock;
-    private Mock<IPrompt<SelectionPrompt<string>>> _selectionPromptMock;
+    private bool _callbackExecuted;
 
     [SetUp]
     public void SetUp()
@@ -39,7 +39,6 @@ public class MenuOptionTests
     }
 
     [Test]
-    [Ignore("Functionality not yet implemented")]
     public void MenuOptionTriggersAction()
     {
         this.Given(_ => AMenuOptionWithATriggerAction())
@@ -61,20 +60,19 @@ public class MenuOptionTests
     private void AMenuOptionWithAParentMenu()
     {
         _subMenu = new Menu()
-           .AddMenuOption(new MenuOption("SubMenu Option 1"))
-           .AddMenuOption(new MenuOption("SubMenu Option 2"))
-           .AddMenuOption(new MenuOption("Back", actionType: ActionType.Back));
+           .AddMenuOption(new MenuOption("SubMenu Option 1", () => {}))
+           .AddMenuOption(new MenuOption("SubMenu Option 2", () => {}))
+           .AddMenuOption(new MenuOption("Back"));
 
         _menu = new Menu()
-            .AddMenuOption(new MenuOption("Menu Option 1"))
+            .AddMenuOption(new MenuOption("Menu Option 1", () => {}))
             .AddMenuOption(new MenuOption("Menu Option 2", _subMenu))
-            .AddMenuOption(new MenuOption("Exit"));
+            .AddMenuOption(new MenuOption("Exit", () => {}));
 
         _consoleMock
             .SetupSequence(x => x.Prompt(It.IsAny<SelectionPrompt<string>>()))
             .Returns("Back")
             .Returns("Menu Option 1");
-            
     }
 
     private void TheSubMenuIsPresented()
@@ -90,12 +88,12 @@ public class MenuOptionTests
     private void AMenuOptionWithASubMenu()
     {
         _subMenu = new Menu()
-            .AddMenuOption(new MenuOption("SubMenu Option 1"))
-            .AddMenuOption(new MenuOption("SubMenu Option 2"))
-            .AddMenuOption(new MenuOption("Back", actionType: ActionType.Back));
+            .AddMenuOption(new MenuOption("SubMenu Option 1", () => {}))
+            .AddMenuOption(new MenuOption("SubMenu Option 2", () => {}))
+            .AddMenuOption(new MenuOption("Back"));
 
         _menu = new Menu()
-            .AddMenuOption(new MenuOption("Menu Option 1"))
+            .AddMenuOption(new MenuOption("Menu Option 1", () => {}))
             .AddMenuOption(new MenuOption("Menu Option 2", _subMenu))
             .AddMenuOption(new MenuOption("Exit"));
 
@@ -104,17 +102,21 @@ public class MenuOptionTests
             .Returns("Menu Option 2")
             .Returns("SubMenu Option 2");
     }
-
-
-
+    
     private void TheActionIsTriggered()
     {
-        throw new NotImplementedException();
+        _callbackExecuted.Should().Be(true);
     }
 
     private void AMenuOptionWithATriggerAction()
     {
-        throw new NotImplementedException();
+        _menu = new Menu()
+            .AddMenuOption(new MenuOption("Menu Option 1", () => { _callbackExecuted = true; }))
+            .AddMenuOption(new MenuOption("Exit"));
+
+        _consoleMock
+            .SetupSequence(x => x.Prompt(It.IsAny<SelectionPrompt<string>>()))
+            .Returns("Menu Option 1");
     }
 
 }

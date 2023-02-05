@@ -10,16 +10,17 @@ AnsiConsole.Markup($"[bold blue]Twitter ChatGPT Bot client version {AppInfo.Vers
 AnsiConsole.WriteLine();
 AnsiConsole.WriteLine();
 
+var chatGptMenuOptions = new Menu();
+var twitterMenuOptions = new Menu();
+
 var configurationMenuOptions = new Menu()
-    .AddMenuOption(new MenuOption("ChatGPT"))
-    .AddMenuOption(new MenuOption("Twitter"))
-    .AddMenuOption(new MenuOption("Back", actionType: ActionType.Back));
+    .AddMenuOption(new MenuOption("ChatGPT", chatGptMenuOptions))
+    .AddMenuOption(new MenuOption("Twitter", twitterMenuOptions))
+    .AddMenuOption(new MenuOption("Back"));
 
 var mainMenuOptions = new Menu()
-    .AddMenuOption(new MenuOption("Post a tweet from a topic"))
+    .AddMenuOption(new MenuOption("Post a tweet from a topic", () => { }))
     .AddMenuOption(new MenuOption("Configuration", configurationMenuOptions))
     .AddMenuOption(new MenuOption("Exit"));
 
-
 menuHandler.ProcessMenuSelection(mainMenuOptions);
-
