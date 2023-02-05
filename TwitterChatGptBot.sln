@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33122.133
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TwitterChatGptBot.Client", "TwitterChatGptBot\TwitterChatGptBot.Client\TwitterChatGptBot.Client.csproj", "{174D2C81-BEB3-4276-8600-2B45A277A996}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TwitterChatGptBot.Client", "TwitterChatGptBot.Client\TwitterChatGptBot.Client.csproj", "{174D2C81-BEB3-4276-8600-2B45A277A996}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Spectre.Console.Menu", "Spectre.Console.Menu\Spectre.Console.Menu.csproj", "{AFCCFB59-B7B9-4993-8214-C6F52BE7444B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{D3D040F8-0534-4AD3-9776-82B1C855A0A4}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Spectre.Console.Menu.UnitTest", "Spectre.Console.Menu.UnitTest\Spectre.Console.Menu.UnitTest.csproj", "{8159C30E-80E7-4DC9-B3CF-64445951FF50}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwitterChatGptBot.ChatGpt.Integration", "TwitterChatGptBot.ChatGpt.Integration\TwitterChatGptBot.ChatGpt.Integration.csproj", "{BF392FB3-C1F3-493B-B357-97790CBC87B4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,6 +45,14 @@ Global
 		{8159C30E-80E7-4DC9-B3CF-64445951FF50}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8159C30E-80E7-4DC9-B3CF-64445951FF50}.Release|x64.ActiveCfg = Release|x64
 		{8159C30E-80E7-4DC9-B3CF-64445951FF50}.Release|x64.Build.0 = Release|x64
+		{BF392FB3-C1F3-493B-B357-97790CBC87B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF392FB3-C1F3-493B-B357-97790CBC87B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF392FB3-C1F3-493B-B357-97790CBC87B4}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{BF392FB3-C1F3-493B-B357-97790CBC87B4}.Debug|x64.Build.0 = Debug|Any CPU
+		{BF392FB3-C1F3-493B-B357-97790CBC87B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF392FB3-C1F3-493B-B357-97790CBC87B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF392FB3-C1F3-493B-B357-97790CBC87B4}.Release|x64.ActiveCfg = Release|Any CPU
+		{BF392FB3-C1F3-493B-B357-97790CBC87B4}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
