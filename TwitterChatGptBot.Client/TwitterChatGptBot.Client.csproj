@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Spectre.Console.Menu\Spectre.Console.Menu.csproj" />
+    <ProjectReference Include="..\Spectre.Console.Menu\Spectre.Console.Menu.csproj" />
   </ItemGroup>
 
 </Project>
