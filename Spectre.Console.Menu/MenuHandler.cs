@@ -10,7 +10,7 @@ public class MenuHandler
         _console = console;
     }
 
-    public void ProcessMenuSelection(Menu? menuOptions)
+    public async Task ProcessMenuSelection(Menu? menuOptions)
     {
         if (menuOptions == null)
             throw new ArgumentNullException(nameof(menuOptions));
@@ -27,18 +27,18 @@ public class MenuHandler
 
         if (selectedMenuOption.ActionType == ActionType.LoadParentMenu)
         {
-            ProcessMenuSelection(menuOptions.Parent);
+            await ProcessMenuSelection(menuOptions.Parent);
         }
         else if (selectedMenuOption.ActionType == ActionType.ExecuteCallback)
         {
-            if (selectedMenuOption.Callback != null)
-            {
-                selectedMenuOption.Callback();
-            }
+            if (selectedMenuOption.Callback != null) 
+                await Task.Run(selectedMenuOption.Callback);
+
+            await ProcessMenuSelection(menuOptions);
         }
         else if(selectedMenuOption.SubMenu != null)
         {
-            ProcessMenuSelection(selectedMenuOption.SubMenu);
+            await ProcessMenuSelection(selectedMenuOption.SubMenu);
         }
     }
 }

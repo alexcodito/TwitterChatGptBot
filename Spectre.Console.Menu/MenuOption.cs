@@ -8,7 +8,7 @@ public sealed class MenuOption
 
     public ActionType? ActionType { get; }
 
-    public Action? Callback { get; }
+    public Func<Task>? Callback { get; }
 
     public MenuOption(string title, Menu? subMenu)
     {
@@ -17,16 +17,30 @@ public sealed class MenuOption
         ActionType = Console.Menu.ActionType.LoadSubMenu;
     }
 
-    public MenuOption(string title, Action callback)
+    public MenuOption(string title, Func<Task> callback)
     {
         Title = title;
         Callback = callback;
+        ActionType = Console.Menu.ActionType.ExecuteCallback;
+    }
+    
+    public MenuOption(string title, Action callback)
+    {
+        Task FuncCallback() => Task.Run(callback);
+
+        Title = title;
+        Callback = FuncCallback;
         ActionType = Console.Menu.ActionType.ExecuteCallback;
     }
 
     public MenuOption(string title)
     {
         Title = title;
-        ActionType = Console.Menu.ActionType.LoadParentMenu;
+    }
+
+    public MenuOption(string title, ActionType actionType)
+    {
+        Title = title;
+        ActionType = actionType;
     }
 }

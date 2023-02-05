@@ -4,5 +4,6 @@ public enum ActionType
 {
     LoadParentMenu,
     LoadSubMenu,
-    ExecuteCallback
+    ExecuteCallback,
+    Exit,
 }
