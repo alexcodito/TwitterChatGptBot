@@ -20,5 +20,6 @@ var mainMenuOptions = new Menu()
     .AddMenuOption(new MenuOption("Configuration", configurationMenuOptions))
     .AddMenuOption(new MenuOption("Exit"));
 
+
 menuHandler.ProcessMenuSelection(mainMenuOptions);
 

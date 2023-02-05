@@ -50,17 +50,31 @@ public class MenuOptionTests
 
     private void TheParentMenuIsPresented()
     {
-        throw new NotImplementedException();
+        _sut.SelectedOption.Should().Be("Menu Option 1");
     }
 
     private void TheBackOptionIsSelected()
     {
-        throw new NotImplementedException();
+        _sut.ProcessMenuSelection(_subMenu);
     }
 
     private void AMenuOptionWithAParentMenu()
     {
-        throw new NotImplementedException();
+        _subMenu = new Menu()
+           .AddMenuOption(new MenuOption("SubMenu Option 1"))
+           .AddMenuOption(new MenuOption("SubMenu Option 2"))
+           .AddMenuOption(new MenuOption("Back", actionType: ActionType.Back));
+
+        _menu = new Menu()
+            .AddMenuOption(new MenuOption("Menu Option 1"))
+            .AddMenuOption(new MenuOption("Menu Option 2", _subMenu))
+            .AddMenuOption(new MenuOption("Exit"));
+
+        _consoleMock
+            .SetupSequence(x => x.Prompt(It.IsAny<SelectionPrompt<string>>()))
+            .Returns("Back")
+            .Returns("Menu Option 1");
+            
     }
 
     private void TheSubMenuIsPresented()
@@ -90,6 +104,8 @@ public class MenuOptionTests
             .Returns("Menu Option 2")
             .Returns("SubMenu Option 2");
     }
+
+
 
     private void TheActionIsTriggered()
     {
