@@ -11,10 +11,10 @@ var menuHandler = new MenuHandler(console);
 
 void InitializeConsole()
 {
-    ansiConsole.Clear(false);
     ansiConsole.MarkupLine($"[bold blue]Twitter ChatGPT Bot client version {AppInfo.Version}[/]");
     ansiConsole.WriteLine();
 }
+
 void InitializeConfiguration()
 {
     configuration = new ConfigurationBuilder<IBotConfiguration>()
@@ -24,11 +24,13 @@ void InitializeConfiguration()
 
 void PromptSetApiKey()
 {
-    configuration.ChatGptConfiguration.ApiKey =
-        ansiConsole.Prompt(
-            new TextPrompt<string>("Please provide your [blue]ChatGPT API[/] key?")
-                .Secret());
-    InitializeConsole(); // TODO: Find a way to not have to use this
+    ansiConsole.AlternateScreen(() =>
+    {
+        configuration.ChatGptConfiguration.ApiKey =
+            ansiConsole.Prompt(
+                new TextPrompt<string>("Please provide your [blue]ChatGPT API[/] key")
+                    .Secret());
+    });
 }
 
 async Task InitializeMenu()
