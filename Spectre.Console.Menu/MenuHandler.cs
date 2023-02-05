@@ -7,7 +7,7 @@ public class MenuHandler
 
     public MenuHandler(IConsole console)
     {
-        _console = console;
+        _console = console ?? throw new ArgumentException(nameof(console));
     }
 
     public async Task ProcessMenuSelection(Menu? menuOptions)
