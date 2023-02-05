@@ -9,11 +9,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Config.Net" Version="5.1.5" />
     <PackageReference Include="Spectre.Console" Version="0.46.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Spectre.Console.Menu\Spectre.Console.Menu.csproj" />
+    <ProjectReference Include="..\TwitterChatGptBot.ChatGpt.Integration\TwitterChatGptBot.ChatGpt.Integration.csproj" />
   </ItemGroup>
 
 </Project>
